@@ -7,34 +7,32 @@ using TicketSystem.Data.Repositories;
 using TicketSystem.Repositories.IRepository;
 using TicketSystem.Services;
 using TicketSystem.Services.IService;
-using TicketSystem.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var key = "oT.4B&36m1N,";
-var keyBytes = Encoding.ASCII.GetBytes(key);
-
-// Agregar servicios al contenedor
-builder.Services.AddSingleton(new TokenService(key));
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
+})
+.AddJwtBearer(options =>
 {
-    options.RequireHttpsMetadata = false;
-    options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
-        ValidateIssuer = false,
-        ValidateAudience = false
+        ValidIssuer = "dylancueto.com",
+        ValidAudience = "dylancueto.com",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("oT.4B&36m1N,"))
     };
 });
+
+// Agregar servicios al contenedor
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 // Configurar la cadena de conexión
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

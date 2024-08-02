@@ -1,6 +1,6 @@
-TicketSystem\.vs
-TicketSystem\bin
-TicketSystem\obj
+TicketSystem/.vs/*
+TicketSystem/bin/*
+TicketSystem/obj/*
 .vs/ProjectEvaluation/ticketsystem.metadata.v2
 .vs/ProjectEvaluation/ticketsystem.projects.v2
 .vs/TicketSystem/DesignTimeBuild/.dtbcache.v2
@@ -71,3 +71,16 @@ obj/project.nuget.cache
 obj/staticwebassets.pack.sentinel
 obj/TicketSystem.csproj.nuget.dgspec.json
 obj/TicketSystem.csproj.nuget.g.props
+.vs/TicketSystem/FileContentIndex/28263793-003c-4b28-becd-2aee325b9d88.vsidx
+.vs/TicketSystem/FileContentIndex/6c24c9db-1254-4846-93c3-dc2aab121670.vsidx
+.vs/TicketSystem/FileContentIndex/9f26470a-ac54-4ac3-b059-8a5a738b92c3.vsidx
+.vs/TicketSystem/FileContentIndex/ed7368cd-a4b8-4f4c-84e3-62388424d6bf.vsidx
+obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
+obj/Debug/net6.0/TicketSystem.AssemblyInfo.cs
+obj/Debug/net6.0/TicketSystem.AssemblyInfoInputs.cache
+obj/Debug/net6.0/TicketSystem.GeneratedMSBuildEditorConfig.editorconfig
+obj/Debug/net6.0/TicketSystem.GlobalUsings.g.cs
+obj/TicketSystem.csproj.nuget.g.targets
+.vs/TicketSystem/FileContentIndex/a99a13d5-0262-4ab4-ad7e-f4021b9ac025.vsidx
+.vs/TicketSystem/FileContentIndex/82b2bf0b-c3b3-4baf-93c4-e73d47a510af.vsidx
+.vs/TicketSystem/FileContentIndex/a4246bf1-9f47-4464-b4f4-196344a8c528.vsidx
