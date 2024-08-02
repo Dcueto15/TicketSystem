@@ -17,10 +17,12 @@ namespace TicketSystem.Models
         public string NombreCreador { get; set; }
         public int EquipoResponsableId { get; set; }
         public int ResponsableSolucionId { get; set; }
+
         [ForeignKey("TipoIncidenciaId")]
         public int TipoIncidenciaId { get; set; }
         [ForeignKey("GravedadIncidenciaId")]
         public int GravedadIncidenciaId { get; set; }
+
         [StringLength(255)]
         public string VersionSoftware { get; set; }
         [Required, StringLength(4000)]

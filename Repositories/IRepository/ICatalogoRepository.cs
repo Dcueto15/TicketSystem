@@ -1,6 +1,6 @@
 ﻿using TicketSystem.Models;
 
-namespace TicketSystem.Repositories.IRepositories
+namespace TicketSystem.Repositories.IRepository
 {
     public interface ICatalogoRepository
     {
