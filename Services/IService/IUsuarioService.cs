@@ -11,5 +11,6 @@ namespace TicketSystem.Services
         Task AddUsuarioAsync(Usuario usuario);
         Task UpdateUsuarioAsync(Usuario usuario);
         Task DeleteUsuarioAsync(int id);
+        Task<Usuario> LoginAsync(string username, string password);
     }
 }

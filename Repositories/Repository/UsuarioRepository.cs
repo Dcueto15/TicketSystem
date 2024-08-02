@@ -85,5 +85,21 @@ namespace TicketSystem.Data.Repositories
                 throw new Exception("Failed to delete user", ex);
             }
         }
+
+        public async Task<Usuario> LoginAsync(string username, string password)
+        {
+            try
+            {
+                var usuario = await _context.Usuarios
+                    .FirstOrDefaultAsync(u => u.NombreCompleto == username && u.Key == password);
+                if (usuario == null)
+                    throw new UnauthorizedAccessException("Invalid username or password");
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to login", ex);
+            }
+        }
     }
 }

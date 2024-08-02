@@ -87,3 +87,4 @@ obj/TicketSystem.csproj.nuget.g.targets
 .vs/TicketSystem/FileContentIndex/ebc75267-a2a4-40b8-92fe-a924c540594d.vsidx
 .vs/TicketSystem/FileContentIndex/11c619d1-bb45-4c68-be6a-5e27a9cbe291.vsidx
 .vs/TicketSystem/FileContentIndex/236a6484-c402-4af2-80e9-ffee595c41a9.vsidx
+*.vsidx

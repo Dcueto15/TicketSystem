@@ -2,33 +2,35 @@
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using TicketSystem.Utils;
 
-public class JwtTokenGenerator
+namespace TicketSystem.Utils
 {
-    public static string GenerateJwtToken(int idUsuario, int idPerfil, string secretKey)
+    public class JwtTokenGenerator
     {
-        var (idAleatorioUno, idAleatorioDos, idAleatorioTres) = TokenHelper.GenerarIds(idUsuario, idPerfil);
-
-        var claims = new[]
+        public static string GenerateJwtToken(int idUsuario, int idPerfil, string secretKey)
         {
-            new Claim("IdUsuario", idUsuario.ToString()),
-            new Claim("IdPerfil", idPerfil.ToString()),
-            new Claim("IdAleatorioUno", idAleatorioUno.ToString()),
-            new Claim("IdAleatorioDos", idAleatorioDos.ToString()),
-            new Claim("IdAleatorioTres", idAleatorioTres.ToString())
-        };
+            var (idAleatorioUno, idAleatorioDos, idAleatorioTres) = TokenHelper.GenerarIds(idUsuario, idPerfil);
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+                new Claim("IdUsuario", idUsuario.ToString()),
+                new Claim("IdPerfil", idPerfil.ToString()),
+                new Claim("IdAleatorioUno", idAleatorioUno.ToString()),
+                new Claim("IdAleatorioDos", idAleatorioDos.ToString()),
+                new Claim("IdAleatorioTres", idAleatorioTres.ToString())
+            };
 
-        var token = new JwtSecurityToken(
-            issuer: "yourdomain.com",
-            audience: "yourdomain.com",
-            claims: claims,
-            expires: DateTime.Now.AddHours(1),
-            signingCredentials: creds);
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        return new JwtSecurityTokenHandler().WriteToken(token);
+            var token = new JwtSecurityToken(
+                issuer: "dylancueto.com",
+                audience: "dylancueto.com",
+                claims: claims,
+                expires: DateTime.Now.AddHours(1),
+                signingCredentials: creds);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
     }
 }

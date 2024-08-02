@@ -95,5 +95,25 @@ namespace TicketSystem.Services
                 throw new Exception("Service error: Failed to delete user", ex);
             }
         }
+
+        public async Task<Usuario> LoginAsync(string username, string password)
+        {
+            try
+            {
+                var usuario = await _usuarioRepository.LoginAsync(username, password);
+                if (usuario == null)
+                    throw new UnauthorizedAccessException("Invalid username or password");
+
+                return usuario;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw;  // Rethrow to preserve the stack trace.
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Service error: Failed to login user", ex);
+            }
+        }
     }
 }
